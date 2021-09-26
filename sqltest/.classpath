@@ -6,10 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/A_TeachingMaterial/1.BasicJava/workspace/ddit/ojdbc8.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/이상림/Documents/GitHub/basicProject/jar모음/ojdbc8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
