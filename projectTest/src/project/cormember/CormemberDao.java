@@ -63,14 +63,14 @@ public class CormemberDao {
 	}
 	
 	// 법인회원 이름 수정
-	public int modifyCorName(CormemberVO vo) {
-		try {
-			return template.update("UPDATE CORMEMBER SET COR_NAME = ? WHERE COR_ID = ?", vo.getCorName());
-		} catch (DataAccessException e) {
-			e.printStackTrace();
-			return 0;
-		}
-	}
+//	public int modifyCorName(CormemberVO vo) {
+//		try {
+//			return template.update("UPDATE CORMEMBER SET COR_NAME = ? WHERE COR_ID = ?", vo.getCorName());
+//		} catch (DataAccessException e) {
+//			e.printStackTrace();
+//			return 0;
+//		}
+//	}
 	
 	// 전화번호 수정
 	public int modifyCorTel(CormemberVO vo) {
