@@ -21,12 +21,15 @@ public class AccoController {
 		return accoService.readAcco();
 	}
 	
-	public int updateAccoAdd(AccoVO vo) {
-		return accoService.updateAccoAdd(vo);
+	public int updateAccoName(AccoVO vo) {
+		return accoService.updateAccoName(vo);
+	}
+	public int updateAccoFacility(AccoVO vo) {
+		return accoService.updateAccoFacility(vo);
 	}
 	
-	public int updateAccoRate(AccoVO vo) {
-		return accoService.updateAccoRate(vo);
+	public int updateAccoIntro(AccoVO vo) {
+		return accoService.updateAccoIntro(vo);
 	}
 	
 	public int delteAcco(AccoVO vo) {

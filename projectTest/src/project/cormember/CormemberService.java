@@ -18,4 +18,21 @@ public class CormemberService {
 	public CormemberVO readCormember(String corId) {
 		return cormemberDao.readCormember(corId);
 	}
+	
+	public int modifyCorPass(CormemberVO vo) {
+		return cormemberDao.modifyCorPass(vo);
+	}
+	
+	public int modifyCorName(CormemberVO vo) {
+		return cormemberDao.modifyCorName(vo);
+	}
+	
+	public int modifyCorTel(CormemberVO vo) {
+		return cormemberDao.modifyCorTel(vo);
+	}
+	
+	public int deleteCorMember(CormemberVO vo) {
+		return cormemberDao.deleteCorMember(vo);
+	}
+	
 }	// end of class

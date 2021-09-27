@@ -11,7 +11,7 @@ import project.cormember.CormemberVO;
 
 public class Test {
 	public static void main(String[] args) {
-		System.out.println("½ÃÀÛ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
 		
 		AccoController accoController = AccoController.getInstance();
 		
@@ -19,13 +19,13 @@ public class Test {
 		
 		List<AccoVO> result = accoController.readAcco();
 		System.out.println(result.toString());
-		
+//		
 //		accoVO.setAccoRate(3.5);
 //		accoVO.setAccoId("a001");
 //		
-//		int result = accoController.updateAccoRate(accoVO);
-//		if (result == 1) {
-//			System.out.println("ÆòÁ¡ÀÌ ¾÷µ¥ÀÌÆ® µÇ¾ú½À´Ï´Ù.");
+//		int result0 = accoController.updateAccoRate(accoVO);
+//		if (result0 == 1) {
+//			System.out.println(accoVO.toString());
 //		}
 		
 		System.out.println("------");

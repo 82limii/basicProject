@@ -1,3 +1,4 @@
+package project.etc;
 //package project.main;
 //
 //import java.util.Scanner;

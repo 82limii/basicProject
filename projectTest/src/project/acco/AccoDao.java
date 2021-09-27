@@ -54,8 +54,7 @@ public class AccoDao {
 	 * @param vo
 	 * @return
 	 */
-	// 알아서 지우고 이름, 숙소설명, 편의시설 업데이트문 추가
-	public int updateAccoAdd(AccoVO vo) {
+	public int updateAccoName(AccoVO vo) {
 		try {
 			return template.update("UPDATE ACCO SET ACCO_ADD = ? WHERE ACCO_ID = ?", vo.getAccoAdd(), vo.getAccoId());
 		} catch (DataAccessException e) {
@@ -64,9 +63,17 @@ public class AccoDao {
 		}
 	}
 	
-	public int updateAccoRate(AccoVO vo) {
+	public int updateAccoFacility(AccoVO vo) {
 		try {
-			return template.update("UPDATE ACCO SET ACCO_RATE = ? WHERE ACCO_ID = ?", vo.getAccoRate(), vo.getAccoId());
+			return template.update("UPDATE ACCO SET ACCO_FACILITY = ? WHERE ACCO_ID = ?", vo.getAccoFacility(), vo.getAccoId());
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	public int updateAccoIntro(AccoVO vo) {
+		try {
+			return template.update("UPDATE ACCO SET ACCO_INTRO = ? WHERE ACCO_ID = ?", vo.getAccoIntro(), vo.getAccoId());
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			return 0;

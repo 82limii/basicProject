@@ -20,13 +20,15 @@ public class AccoService {
 	public List<AccoVO> readAcco() {
 		return accoDao.readAcco();
 	}
-	
-	public int updateAccoAdd(AccoVO vo) {
-		return accoDao.updateAccoAdd(vo);
+	public int updateAccoName(AccoVO vo) {
+		return accoDao.updateAccoFacility(vo);
+	}
+	public int updateAccoFacility(AccoVO vo) {
+		return accoDao.updateAccoFacility(vo);
 	}
 	
-	public int updateAccoRate(AccoVO vo) {
-		return accoDao.updateAccoRate(vo);
+	public int updateAccoIntro(AccoVO vo) {
+		return accoDao.updateAccoIntro(vo);
 	}
 	
 	public int delteAcco(AccoVO vo) {

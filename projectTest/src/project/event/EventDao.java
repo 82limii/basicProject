@@ -27,18 +27,9 @@ public class EventDao {
 	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 * @throws Exception
 	 */
-	
 	public List<Map<String, Object>> selectEventList() {
 		try {
-			String query = "SELECT EVE_NO"
-					+ " , EVE_NAME"
-					+ " ,EVE_START"
-					+ " ,EVE_END"
-					+ " ,EVE_INFO"
-					+ " ,EVE_DIS"
-					+ " FROM EVENT "
-					+  " ORDER BY EVE_NO";
-			return template.queryForList(query);
+			return template.queryForList("SELECT * FROM EVENT ORDER BY EVE_NO",new BeanPropertyRowMapper<>(EventVO.class));
 		} catch (DataAccessException e) {
 			return null;
 		}
@@ -51,24 +42,13 @@ public class EventDao {
 	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 * @throws Exception
 	 */
-	
 	public EventVO selectEvent(int eveNo) {
 		try {
-			String query = "SELECT EVE_NO"
-					+ " , EVE_NAME"
-					+ " ,TO_CHAR(EVE_START, 'YYYY-MM-DD') EVE_START"
-					+ " ,EVE_END"
-					+ " ,EVE_INFO"
-					+ " ,EVE_DIS"
-					+ " FROM EVENT "
-					+  " WHERE EVE_NO="+eveNo;
-			return template.queryForObject(query, new BeanPropertyRowMapper<>(EventVO.class));
+			return template.queryForObject("SELECT EVE_NO, EVE_NAME, TO_CHAR(EVE_START, 'YYYY-MM-DD') EVE_START, EVE_END, EVE_INFO, EVE_DIS FROM EVENT WHERE EVE_NO = ? ", new BeanPropertyRowMapper<>(EventVO.class) , eveNo);
 		} catch (DataAccessException e) {
 			return null;
 		}
 	}
-	
-	
 	  
 	// 이벤트 등록 
 	/**
@@ -78,15 +58,11 @@ public class EventDao {
 	 * @throws Exception
 	 */
 	public int insertEvent(EventVO vo) {
-		String query = "insert into event(eve_no, eve_name, eve_start, eve_end, eve_info, eve_dis) values('"
-					+ vo.getEveNo() +"', '" 
-					+ vo.getEveName() + "', '" 
-					+ vo.getEveStart() +"', '" 
-					+ vo.getEveEnd() +"','"
-					+ vo.getEveInfo() +"','" 
-					+ vo.getEveDis() 
-					+ "')";
-		return template.update(query);
+		try {
+			return template.update("INSERT INTO EVENT(EVE_NO, EVE_NAME, EVE_START, EVE_END, EVE_INFO, EVE_DIS) VALUES(?,?,?,?,?,?)",vo.getEveNo(),vo.getEveName(),vo.getEveStart(),vo.getEveEnd(),vo.getEveInfo(),vo.getEveDis());
+		}catch(DataAccessException e) {
+			return 0;
+		}
 	}
 		
 	// 이벤트 수정(update)
@@ -96,28 +72,14 @@ public class EventDao {
 	 * @return 성공 여부(성공 : 1, 실패 : 0)
 	 * @throws Exception
 	 */
-	public int updateEvent(EventVO vo) throws Exception {
-		String query = "update event  set eve_no = '" + vo.getEveNo() 
-					+ "', eve_name = '" + vo.getEveName() 
-					+ "', eve_start = '" + vo.getEveStart()
-					+ "', eve_end = '" + vo.getEveEnd() 
-					+ "', eve_info ='" + vo.getEveInfo() 
-					+ "', eve_dis ='" + vo.getEveDis() 
-					+ "'  where eve_no = '"+vo.getEveNo()+"'";
-		return template.update(query);
+	public int updateEventInfo(EventVO vo) throws Exception {
+		try {
+			return template.update("UPDATE EVENT  SET EVE_INFO = ? , WHERE = EVE_NO = ? ", vo.getEveInfo(),vo.getEveNo());
+		}catch(DataAccessException e) {
+			return 0;
+		}
 	}
 	
-//	public int updateEvent(EventVO vo) throws Exception {
-//		String query = "update event  set eve_no = '" + vo.getEveNo() 
-//					+ "', eve_name = '" + vo.getEveName() 
-//					+ "', eve_start = '" + vo.getEveStart()
-//					+ "', eve_end = '" + vo.getEveEnd() 
-//					+ "', eve_info ='" + vo.getEveInfo() 
-//					+ "', eve_dis ='" + vo.getEveDis() 
-//					+ "'  where eve_no = '"+vo.getEveNo()+"'";
-//		return template.update(query);
-//	}
-//	
 	// 이벤트 삭제(delete)
 	/**
 	 * 이벤트 정보 삭제
@@ -126,8 +88,12 @@ public class EventDao {
 	 * @throws Exception
 	 */
 	public int deleteEvent(int eveNo) throws Exception {
-		String query = "DELETE FROM EVENT WHERE EVE_NO = '" + eveNo + "'";
-		return template.update(query);
+		try {
+		return template.update("DELETE FROM EVENT WHERE EVE_NO = ?", eveNo);
+		}catch(DataAccessException e){
+			return 0;
+		}
 	}
 
 }
+

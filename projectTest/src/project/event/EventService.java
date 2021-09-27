@@ -23,7 +23,7 @@ public class EventService {
 			return dao.insertEvent(vo);
 		}
 		public int updateEvent(EventVO vo) throws Exception {
-			return dao.updateEvent(vo);
+			return dao.updateEventInfo(vo);
 		}
 		public int deleteEvent(int eveNo) throws Exception {
 			return dao.deleteEvent(eveNo);

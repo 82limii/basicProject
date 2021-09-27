@@ -54,9 +54,9 @@ public class RoomDao {
 	    * @param vo
 	    * @return
 	    */
-	   public int updateRoomId(RoomVO vo) {
+	   public int updateRoomName(RoomVO vo) {
 	      try {
-	         return template.update("UPDATE ROOM SET ROOM_ID = ? ", vo.getRoomId());
+	         return template.update("UPDATE ROOM SET ROOM_NAME WHERE ROOM_id  = ? ", vo.getRoomName(), vo.getRoomId());
 	      } catch (DataAccessException e) {
 	         e.printStackTrace();
 	         return 0;
@@ -65,6 +65,14 @@ public class RoomDao {
 	   public int updateRoomcost(RoomVO vo) {
 		   try {
 			   return template.update("UPDATE ROOM SET ROOM_COST WHERE ROOM_ID = ? ", vo.getRoomId(),vo.getRoomcost());
+		   } catch (DataAccessException e) {
+			   e.printStackTrace();
+			   return 0;
+		   }
+	   }
+	   public int updateRoomIntro(RoomVO vo) {
+		   try {
+			   return template.update("UPDATE ROOM SET ROOM_INTRO WHERE ROOM_ID = ? ", vo.getRoomIntro(),vo.getRoomId());
 		   } catch (DataAccessException e) {
 			   e.printStackTrace();
 			   return 0;

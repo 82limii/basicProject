@@ -18,7 +18,7 @@ public class RoomService {
 	}
 	
 	public int updateRoomId(RoomVO vo) {
-		return roomDao.updateRoomId(vo);
+		return roomDao.updateRoomName(vo);
 	}
 	
 	public int updateRoomcost(RoomVO vo) {

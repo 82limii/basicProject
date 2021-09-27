@@ -18,10 +18,9 @@ public class CormemberDao {
 	private JdbcTemplate template = Application.getTemplate();
 	
 	/**
-	 * 회원가입 Create (insert)
-	 * return 성공시 1, 실패시 0
+	 * Create (insert) 회원가입
 	 * @param vo
-	 * @return
+	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 */
 	public int createCormember(CormemberVO vo) {
 		try {
@@ -33,15 +32,15 @@ public class CormemberDao {
 	}
 	
 	/**
+	 * Read (select)
 	 * Id가져와서 법인회원 정보 조회(내정보조회)
 	 * @param corId
-	 * @return
+	 * @return 
 	 */
 	public CormemberVO readCormember(String corId) {
 		try {
 			return template.queryForObject("SELECT * FROM CORMEMBER WHERE COR_ID = ? ORDER BY DESC",
-					new BeanPropertyRowMapper<>(CormemberVO.class),
-					corId);
+					new BeanPropertyRowMapper<>(CormemberVO.class),corId);
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			return null;
@@ -49,13 +48,34 @@ public class CormemberDao {
 	}
 	
 	/**
-	 * 법인회원 비밀번호 수정
+	 * Update (update)
 	 * @param vo
-	 * @return
+	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 */
+	// 비밀번호 수정
 	public int modifyCorPass(CormemberVO vo) {
 		try {
-			return template.update("UPDATE CORMEMBER SET COR_PASS = ? WHERE COR_ID = ?", vo.getCorPass(), vo.getCorId());
+			return template.update("UPDATE CORMEMBER SET COR_PASS = ? WHERE COR_ID = ?", vo.getCorPass());
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	// 법인회원 이름 수정
+	public int modifyCorName(CormemberVO vo) {
+		try {
+			return template.update("UPDATE CORMEMBER SET COR_NAME = ? WHERE COR_ID = ?", vo.getCorName());
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	// 전화번호 수정
+	public int modifyCorTel(CormemberVO vo) {
+		try {
+			return template.update("UPDATE CORMEMBER SET COR_TEL = ? WHERE COR_ID = ?", vo.getCorTel());
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			return 0;
@@ -63,9 +83,10 @@ public class CormemberDao {
 	}
 	
 	/**
+	 * Delete (delete)
 	 * 법인회원 삭제
 	 * @param vo
-	 * @return
+	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 */
 	public int deleteCorMember(CormemberVO vo) {
 		try {

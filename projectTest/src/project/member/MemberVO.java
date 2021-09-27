@@ -11,6 +11,25 @@ public class MemberVO {
 	private String memTel;
 	private int memMileage;
 	
+	public MemberVO() {
+	}
+	
+	public MemberVO(String memId, String memPass) {
+		this.memId = memId;
+		this.memPass = memPass;
+	}
+
+	public MemberVO(String memId, String memPass, String memName, Date memBir, String memNick, String memTel,
+			int memMileage) {
+		this.memId = memId;
+		this.memPass = memPass;
+		this.memName = memName;
+		this.memBir = memBir;
+		this.memNick = memNick;
+		this.memTel = memTel;
+		this.memMileage = memMileage;
+	}
+
 	public String getMemId() {
 		return memId;
 	}
@@ -52,6 +71,16 @@ public class MemberVO {
 	}
 	public void setMemMileage(int memMileage) {
 		this.memMileage = memMileage;
+	}
+	
+	public void invalidate() {
+		this.memId = null;
+		this.memPass = null;
+		this.memName = null;
+		this.memBir = null;
+		this.memNick = null;
+		this.memTel = null;
+		this.memMileage = 0;
 	}
 	
 	@Override
