@@ -28,9 +28,9 @@ public class LoginService {
 		
 		switch(input) {
 		case 1: loginMem();
-			return View.MAIN;
+			return View.MAIN_MEM;
 		case 2: loginCor();
-			return View.MAIN;
+			return View.MAIN_COR;
 		case 0: break;
 		default:
 			System.out.println("다시 입력해주세요");
@@ -55,7 +55,7 @@ public class LoginService {
 			System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
 		} else {
 			System.out.println("로그인 성공");
-			System.out.println(MainService.LoginMem);
+			System.out.println(MainServiceMem.Login);
 		}
 		return vo; 	
 	}
@@ -75,7 +75,7 @@ public class LoginService {
 			System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
 		} else {
 			System.out.println("로그인 성공");
-			System.out.println(MainService.LoginCor);
+			System.out.println(MainServiceCor.Login);
 		}
 		return vo; 	
 	}

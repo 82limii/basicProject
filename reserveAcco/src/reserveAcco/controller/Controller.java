@@ -2,6 +2,8 @@ package reserveAcco.controller;
 
 import reserveAcco.service.JoinService;
 import reserveAcco.service.LoginService;
+import reserveAcco.service.MainServiceCor;
+import reserveAcco.service.MainServiceMem;
 import reserveAcco.util.ScanUtil;
 import reserveAcco.util.View;
 
@@ -11,6 +13,8 @@ public class Controller {
 	}
 	private JoinService joinService = JoinService.getInstance();
 	private LoginService loginService = LoginService.getInstance();
+	private MainServiceMem mainServiceMem = MainServiceMem.getInstance();
+	private MainServiceCor mainServiceCor = MainServiceCor.getInstance();
 	
 	public int start() {
 		int view = View.HOME;
@@ -20,7 +24,8 @@ public class Controller {
 			case View.HOME: view = home(); break;
 			case View.LOGIN:view = loginService.login(); break;
 			case View.JOIN: view = joinService.join(); break;
-//			case View.MAIN: view = mainService.service(); break;
+			case View.MAIN_MEM: view = mainServiceMem.service(); break;
+			case View.MAIN_COR: view = mainServiceCor.service(); break;
 			}
 		}
 	}
