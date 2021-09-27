@@ -33,9 +33,11 @@ public class CancelDao {
 		}
 	}
 	
+	// (숙소or객실)정보(아이디)로 취소내역불러오기(아웃조인)
+	// 개인아이디로 취소내역 불러오기(아웃조인)
 	public CancelVO readCancel(int resNo) {
 		try {
-			return template.queryForObject("SELECT * FROM CANCEL where res_no = ?",
+			return template.queryForObject("SELECT * FROM CANCEL WHERE RES_NO = ?",
 					new BeanPropertyRowMapper<>(CancelVO.class),
 					resNo);
 		} catch (DataAccessException e) {
@@ -43,4 +45,6 @@ public class CancelDao {
 			return null;
 		}
 	}
+	
+	// 삭제
 }	// end of class

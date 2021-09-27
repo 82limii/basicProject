@@ -54,6 +54,7 @@ public class AccoDao {
 	 * @param vo
 	 * @return
 	 */
+	// 알아서 지우고 이름, 숙소설명, 편의시설 업데이트문 추가
 	public int updateAccoAdd(AccoVO vo) {
 		try {
 			return template.update("UPDATE ACCO SET ACCO_ADD = ? WHERE ACCO_ID = ?", vo.getAccoAdd(), vo.getAccoId());
