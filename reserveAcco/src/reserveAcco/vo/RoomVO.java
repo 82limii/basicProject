@@ -1,17 +1,17 @@
 package reserveAcco.vo;
 
 public class RoomVO {
-	private int roomId;
+	private String roomId;
 	private String accoId;
+	private double roomcost;
+	private String roomIntro;
 	private String roomName;
 	private int roomMaxpeple;
-	private double roomcost;
-	private int roomIntro;
 	
-	public int getRoomId() {
+	public String getRoomId() {
 		return roomId;
 	}
-	public void setRoomId(int roomId) {
+	public void setRoomId(String roomId) {
 		this.roomId = roomId;
 	}
 	public String getAccoId() {
@@ -19,6 +19,18 @@ public class RoomVO {
 	}
 	public void setAccoId(String accoId) {
 		this.accoId = accoId;
+	}
+	public double getRoomcost() {
+		return roomcost;
+	}
+	public void setRoomcost(double roomcost) {
+		this.roomcost = roomcost;
+	}
+	public String getRoomIntro() {
+		return roomIntro;
+	}
+	public void setRoomIntro(String roomIntro) {
+		this.roomIntro = roomIntro;
 	}
 	public String getRoomName() {
 		return roomName;
@@ -33,24 +45,10 @@ public class RoomVO {
 		this.roomMaxpeple = roomMaxpeple;
 	}
 	
-	public double getRoomcost() {
-		return roomcost;
-	}
-	public void setRoomcost(double roomcost) {
-		this.roomcost = roomcost;
-	}
-	public int getRoomIntro() {
-		return roomIntro;
-	}
-	public void setRoomIntro(int roomIntro) {
-		this.roomIntro = roomIntro;
-	}
-	
 	@Override
 	public String toString() {
-		return "RoomVO [roomId=" + roomId + ", accoId=" + accoId + ", roomName=" + roomName + ", roomMaxpeple="
-				+ roomMaxpeple + ", roomIntro=" + roomIntro + ", roomToatal=" +  "]";
+		return "RoomVO [roomId=" + roomId + ", accoId=" + accoId + ", roomcost=" + roomcost + ", roomIntro=" + roomIntro
+				+ ", roomName=" + roomName + ", roomMaxpeple=" + roomMaxpeple + "]";
 	}
-
 		
-}
+}	// end of class

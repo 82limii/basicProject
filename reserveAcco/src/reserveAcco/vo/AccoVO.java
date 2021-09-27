@@ -5,10 +5,8 @@ public class AccoVO {
 	private String accoName;
 	private String accoAdd;
 	private String accoTel;
-	private Double accoRate;
-	private String accoFacility;
 	private String accoIntro;
-	private String corNo;
+	private String corId;
 	
 	public String getAccoId() {
 		return accoId;
@@ -34,34 +32,22 @@ public class AccoVO {
 	public void setAccoTel(String accoTel) {
 		this.accoTel = accoTel;
 	}
-	public Double getAccoRate() {
-		return accoRate;
-	}
-	public void setAccoRate(Double accoRate) {
-		this.accoRate = accoRate;
-	}
-	public String getAccoFacility() {
-		return accoFacility;
-	}
-	public void setAccoFacility(String accoFacility) {
-		this.accoFacility = accoFacility;
-	}
 	public String getAccoIntro() {
 		return accoIntro;
 	}
 	public void setAccoIntro(String accoIntro) {
 		this.accoIntro = accoIntro;
 	}
-	public String getCorNo() {
-		return corNo;
+	public String getCorId() {
+		return corId;
 	}
-	public void setCorNo(String corNo) {
-		this.corNo = corNo;
+	public void setCorId(String corId) {
+		this.corId = corId;
 	}
 	@Override
 	public String toString() {
 		return "AccoVO [accoId=" + accoId + ", accoName=" + accoName + ", accoAdd=" + accoAdd + ", accoTel=" + accoTel
-				+ ", accoRate=" + accoRate + ", accoFacility=" + accoFacility + ", accoIntro=" + accoIntro + ", corNo="
-				+ corNo + "]";
+				+ ", accoIntro=" + accoIntro + ", corId=" + corId + "]";
 	}
+	
 }	// end of class

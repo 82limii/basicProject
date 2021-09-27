@@ -7,6 +7,7 @@ public class ReviewVO {
 	private double reConvenience;
 	private String reDetail;
 	private int resNo;
+	
 	public double getReTotal() {
 		return reTotal;
 	}
@@ -43,11 +44,11 @@ public class ReviewVO {
 	public void setResNo(int resNo) {
 		this.resNo = resNo;
 	}
+	
 	@Override
 	public String toString() {
 		return "ReviewVO [reTotal=" + reTotal + ", reClean=" + reClean + ", reKind=" + reKind + ", reConvenience="
 				+ reConvenience + ", reDetail=" + reDetail + ", resNo=" + resNo + "]";
 	}
 	
-	
-}
+}	// end of class

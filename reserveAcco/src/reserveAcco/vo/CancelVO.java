@@ -1,16 +1,14 @@
 package reserveAcco.vo;
 
-import java.util.Date;
-
 public class CancelVO {
-	private Date canDate;
+	private String canDate;
 	private String canReason;
-	private int canPrice;
 	private int resNo;
-	public Date getCanDate() {
+	
+	public String getCanDate() {
 		return canDate;
 	}
-	public void setCanDate(Date canDate) {
+	public void setCanDate(String canDate) {
 		this.canDate = canDate;
 	}
 	public String getCanReason() {
@@ -19,21 +17,16 @@ public class CancelVO {
 	public void setCanReason(String canReason) {
 		this.canReason = canReason;
 	}
-	public int getCanPrice() {
-		return canPrice;
-	}
-	public void setCanPrice(int canPrice) {
-		this.canPrice = canPrice;
-	}
 	public int getResNo() {
 		return resNo;
 	}
 	public void setResNo(int resNo) {
 		this.resNo = resNo;
 	}
+	
 	@Override
 	public String toString() {
-		return "CancelVO [canDate=" + canDate + ", canReason=" + canReason + ", canPrice=" + canPrice + ", resNo="
-				+ resNo + "]";
+		return "CancelVO [canDate=" + canDate + ", canReason=" + canReason + ", resNo=" + resNo + "]";
 	}
+	
 }	// end of class
