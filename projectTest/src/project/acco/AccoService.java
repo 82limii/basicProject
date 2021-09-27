@@ -3,7 +3,7 @@ package project.acco;
 import java.util.List;
 
 public class AccoService {
-	// ½Ì±ÛÅæ ÆÐÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static AccoService instance = new AccoService();
 	public static AccoService getInstance() {
 		return instance;

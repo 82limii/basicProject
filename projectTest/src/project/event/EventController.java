@@ -3,12 +3,12 @@ package project.event;
 import java.util.List;
 import java.util.Map;
 
-public class Eventcontroller {
-	private static Eventcontroller instance = new Eventcontroller();
-	public static Eventcontroller getInstance() {
+public class EventController {
+	private static EventController instance = new EventController();
+	public static EventController getInstance() {
 		return instance;
 	}
-	private Eventcontroller() {}
+	private EventController() {}
 	
 	EventService service = EventService.getInstance();
 	

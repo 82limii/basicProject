@@ -1,14 +1,14 @@
 package project.cormember;
 
 public class CormemberController {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static CormemberController instance = new CormemberController();
 	public static CormemberController getInstance() {
 		return instance;
 	}
 	private CormemberController() {}
 	
-	// ¼­ºñ½º °´Ã¼ »ı¼º
+	// ì„œë¹„ìŠ¤ ê°ì²´ ìƒì„±
 	private CormemberService cormemberService = CormemberService.getInstance();
 	
 	public int createCormember(CormemberVO vo) {

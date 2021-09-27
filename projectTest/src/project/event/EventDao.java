@@ -20,11 +20,11 @@ public class EventDao {
 	private JdbcTemplate template = Application.getTemplate();
 	
 	
-	// 紐⑸줉 蹂닿린!
+	// 목록 보기!
 	/**
-	 * �씠踰ㅽ듃 紐⑸줉蹂닿린
-	 * @param vo : �씠踰ㅽ듃 �젙蹂� 蹂닿린 List<Map<String,Object>>
-	 * @return �꽦怨� �뿬遺�(�꽦怨� : 1 , �떎�뙣 : 0)
+	 * 이벤트 목록보기
+	 * @param vo : 이벤트 정보 보기 List<Map<String,Object>>
+	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 * @throws Exception
 	 */
 	
@@ -44,11 +44,11 @@ public class EventDao {
 		}
 	}
 
-	// 紐⑸줉 �긽�꽭蹂닿린!
+	// 목록 상세보기!
 	/**
-	 * �씠踰ㅽ듃 紐⑸줉蹂닿린
-	 * @param vo : �씠踰ㅽ듃 �젙蹂� 蹂닿린 EventVO
-	 * @return �꽦怨� �뿬遺�(�꽦怨� : 1 , �떎�뙣 : 0)
+	 * 이벤트 목록보기
+	 * @param vo : 이벤트 정보 보기 EventVO
+	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 * @throws Exception
 	 */
 	
@@ -56,7 +56,7 @@ public class EventDao {
 		try {
 			String query = "SELECT EVE_NO"
 					+ " , EVE_NAME"
-					+ " ,EVE_START"
+					+ " ,TO_CHAR(EVE_START, 'YYYY-MM-DD') EVE_START"
 					+ " ,EVE_END"
 					+ " ,EVE_INFO"
 					+ " ,EVE_DIS"
@@ -70,11 +70,11 @@ public class EventDao {
 	
 	
 	  
-	// �씠踰ㅽ듃 �벑濡� 
+	// 이벤트 등록 
 	/**
-	 * �씠踰ㅽ듃 �벑濡�
-	 * @param vo : �씠踰ㅽ듃 �젙蹂� EventVO
-	 * @return �꽦怨� �뿬遺�(�꽦怨� : 1 , �떎�뙣 : 0)
+	 * 이벤트 등록
+	 * @param vo : 이벤트 정보 EventVO
+	 * @return 성공 여부(성공 : 1 , 실패 : 0)
 	 * @throws Exception
 	 */
 	public int insertEvent(EventVO vo) {
@@ -89,11 +89,11 @@ public class EventDao {
 		return template.update(query);
 	}
 		
-	// �씠踰ㅽ듃 �닔�젙(update)
+	// 이벤트 수정(update)
 	/**
-	 * �씠踰ㅽ듃 �젙蹂� �닔�젙
-	 * @param vo : �닔�젙�븷 �씠踰ㅽ듃 �젙蹂�
-	 * @return �꽦怨� �뿬遺�(�꽦怨� : 1, �떎�뙣 : 0)
+	 * 이벤트 정보 수정
+	 * @param vo : 수정할 이벤트 정보
+	 * @return 성공 여부(성공 : 1, 실패 : 0)
 	 * @throws Exception
 	 */
 	public int updateEvent(EventVO vo) throws Exception {
@@ -107,11 +107,22 @@ public class EventDao {
 		return template.update(query);
 	}
 	
-	// �씠踰ㅽ듃 �궘�젣(delete)
+//	public int updateEvent(EventVO vo) throws Exception {
+//		String query = "update event  set eve_no = '" + vo.getEveNo() 
+//					+ "', eve_name = '" + vo.getEveName() 
+//					+ "', eve_start = '" + vo.getEveStart()
+//					+ "', eve_end = '" + vo.getEveEnd() 
+//					+ "', eve_info ='" + vo.getEveInfo() 
+//					+ "', eve_dis ='" + vo.getEveDis() 
+//					+ "'  where eve_no = '"+vo.getEveNo()+"'";
+//		return template.update(query);
+//	}
+//	
+	// 이벤트 삭제(delete)
 	/**
-	 * �씠踰ㅽ듃 �젙蹂� �궘�젣
-	 * @param vo : �궘�젣�븷 �씠踰ㅽ듃 �젙蹂�
-	 * @return �꽦怨� �뿬遺�(�꽦怨� : 1, �떎�뙣 : 0)
+	 * 이벤트 정보 삭제
+	 * @param vo : 삭제할 이벤트 정보
+	 * @return 성공 여부(성공 : 1, 실패 : 0)
 	 * @throws Exception
 	 */
 	public int deleteEvent(int eveNo) throws Exception {

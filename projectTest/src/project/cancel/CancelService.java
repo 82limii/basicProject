@@ -1,7 +1,7 @@
 package project.cancel;
 
 public class CancelService {
-	// ½Ì±ÛÅæ ÆÐÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static CancelService instance = new CancelService();
 	public static CancelService getInstance() {
 		return instance;

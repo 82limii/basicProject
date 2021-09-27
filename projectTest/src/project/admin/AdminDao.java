@@ -7,19 +7,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import project.main.Application;
 
 public class AdminDao {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static AdminDao instance = new AdminDao();
 	public static AdminDao getInstance() {
 	return instance;
 	}
 	private AdminDao() {}
 	
-	// DB ¿¬µ¿
+	// DB ì—°ë™
 	private JdbcTemplate template = Application.getTemplate();
 	
 	/**
 	 * Read (login admin)
-	 * return ¼º°ø½Ã 1, ½ÇÆĞ½Ã 0
+	 * return ì„±ê³µì‹œ 1, ì‹¤íŒ¨ì‹œ 0
 	 * @param adminId
 	 * @return
 	 */

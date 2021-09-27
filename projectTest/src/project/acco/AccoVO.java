@@ -1,6 +1,5 @@
 package project.acco;
 
-// 자바빈 규약을 지키는 클래스
 public class AccoVO {
 	private String accoId;
 	private String accoName;

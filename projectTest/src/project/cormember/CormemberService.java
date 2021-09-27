@@ -1,7 +1,7 @@
 package project.cormember;
 
 public class CormemberService {
-	// ½Ì±ÛÅæ ÆÐÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static CormemberService instance = new CormemberService();
 	public static CormemberService getInstance() {
 		return instance;

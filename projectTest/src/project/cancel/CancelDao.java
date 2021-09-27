@@ -8,19 +8,19 @@ import project.acco.AccoVO;
 import project.main.Application;
 
 public class CancelDao {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static CancelDao instance = new CancelDao();
 	public static CancelDao getInstance() {
 	return instance;
 	}
 	private CancelDao() {}
 	
-	// DB ¿¬µ¿
+	// DB ì—°ë™
 	private JdbcTemplate template = Application.getTemplate();
 	
 	/**
 	 * Create (select)
-	 * return ¼º°ø½Ã 1, ½ÇÆĞ½Ã 0
+	 * return ì„±ê³µì‹œ 1, ì‹¤íŒ¨ì‹œ 0
 	 * @param vo
 	 * @return
 	 */

@@ -1,14 +1,14 @@
 package project.admin;
 
 public class AdminController {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static AdminController instance = new AdminController();
 	public static AdminController getInstance() {
 		return instance;
 	}
 	private AdminController() {}
 	
-	// ¼­ºñ½º °´Ã¼ »ı¼º
+	// ì„œë¹„ìŠ¤ ê°ì²´ ìƒì„±
 	private AdminService adminservice = AdminService.getInstance();
 	
 	public AdminVO findAdmin(String adminId) {

@@ -9,19 +9,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import project.main.Application;
 
 public class AccoDao {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static AccoDao instance = new AccoDao();
 	public static AccoDao getInstance() {
 	return instance;
 	}
 	private AccoDao() {}
 	
-	// DB ¿¬µ¿
+	// DB ì—°ë™
 	private JdbcTemplate template = Application.getTemplate();
 	
 	/**
 	 * Create (insert)
-	 * return ¼º°ø½Ã 1, ½ÇÆĞ½Ã 0
+	 * return ì„±ê³µì‹œ 1, ì‹¤íŒ¨ì‹œ 0
 	 * @param vo
 	 * @return
 	 */
@@ -50,7 +50,7 @@ public class AccoDao {
 
 	/**
 	 * Update (update)
-	 * return ¼º°ø½Ã 1, ½ÇÆĞ½Ã 0
+	 * return ì„±ê³µì‹œ 1, ì‹¤íŒ¨ì‹œ 0
 	 * @param vo
 	 * @return
 	 */
@@ -74,7 +74,7 @@ public class AccoDao {
 	
 	/**
 	 * Delete (delete)
-	 * return ¼º°ø½Ã 1, ½ÇÆĞ½Ã 0
+	 * return ì„±ê³µì‹œ 1, ì‹¤íŒ¨ì‹œ 0
 	 * @param vo
 	 * @return
 	 */

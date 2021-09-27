@@ -1,7 +1,7 @@
 package project.admin;
 
 public class AdminService {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static AdminService instance = new AdminService();
 	public static AdminService getInstance() {
 		return instance;

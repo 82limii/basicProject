@@ -1,14 +1,14 @@
 package project.cancel;
 
 public class CancelController {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static CancelController instance = new CancelController();
 	public static CancelController getInstance() {
 		return instance;
 	}
 	private CancelController() {}
 	
-	// ¼­ºñ½º °´Ã¼ »ı¼º
+	// ì„œë¹„ìŠ¤ ê°ì²´ ìƒì„±
 	private CancelService cancelService = CancelService.getInstance();
 	
 	public int createCancel(CancelVO vo) {

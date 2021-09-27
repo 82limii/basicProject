@@ -3,14 +3,14 @@ package project.acco;
 import java.util.List;
 
 public class AccoController {
-	// ½Ì±ÛÅæ ÆĞÅÏ
+	// ì‹±ê¸€í†¤ íŒ¨í„´
 	private static AccoController instance = new AccoController();
 	public static AccoController getInstance() {
 		return instance;
 	}
 	private AccoController() {}
 	
-	// ¼­ºñ½º °´Ã¼ »ı¼º
+	// ì„œë¹„ìŠ¤ ê°ì²´ ìƒì„±
 	private AccoService accoService = AccoService.getInstance();
 	
 	public int createAcco(AccoVO vo) {
