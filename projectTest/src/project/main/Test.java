@@ -1,5 +1,7 @@
 package project.main;
 
+import java.util.List;
+
 import project.acco.AccoController;
 import project.acco.AccoVO;
 import project.cancel.CancelController;
@@ -15,8 +17,8 @@ public class Test {
 		
 		AccoVO accoVO = new AccoVO();
 		
-//		AccoVO result = accoController.readAcco();
-//		System.out.println(result.toString());
+		List<AccoVO> result = accoController.readAcco();
+		System.out.println(result.toString());
 		
 //		accoVO.setAccoRate(3.5);
 //		accoVO.setAccoId("a001");

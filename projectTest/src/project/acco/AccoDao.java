@@ -1,5 +1,7 @@
 package project.acco;
 
+import java.util.List;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -37,10 +39,9 @@ public class AccoDao {
 	 * @param accoId
 	 * @return
 	 */
-	public AccoVO readAcco() {
+	public List<AccoVO> readAcco() {
 		try {
-			return template.queryForObject("SELECT * FROM ACCO",
-					new BeanPropertyRowMapper<>(AccoVO.class));
+			return template.query("SELECT * FROM ACCO", new BeanPropertyRowMapper<>(AccoVO.class));
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 			return null;

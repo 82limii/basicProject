@@ -1,5 +1,7 @@
 package project.acco;
 
+import java.util.List;
+
 public class AccoService {
 	// ΩÃ±€≈Ê ∆–≈œ
 	private static AccoService instance = new AccoService();
@@ -15,7 +17,7 @@ public class AccoService {
 		return accoDao.createAcco(vo);
 	}
 	
-	public AccoVO readAcco() {
+	public List<AccoVO> readAcco() {
 		return accoDao.readAcco();
 	}
 	

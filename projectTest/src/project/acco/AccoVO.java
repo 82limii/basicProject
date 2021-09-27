@@ -6,7 +6,7 @@ public class AccoVO {
 	private String accoName;
 	private String accoAdd;
 	private String accoTel;
-	private double accoRate;
+	private Double accoRate;
 	private String accoFacility;
 	private String accoIntro;
 	private String corNo;
@@ -35,10 +35,10 @@ public class AccoVO {
 	public void setAccoTel(String accoTel) {
 		this.accoTel = accoTel;
 	}
-	public double getAccoRate() {
+	public Double getAccoRate() {
 		return accoRate;
 	}
-	public void setAccoRate(double accoRate) {
+	public void setAccoRate(Double accoRate) {
 		this.accoRate = accoRate;
 	}
 	public String getAccoFacility() {
