@@ -1,4 +1,4 @@
-package project.cormember;
+package reserveAcco.vo;
 
 public class CormemberVO {
 	private String corNo;

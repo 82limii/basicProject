@@ -1,4 +1,4 @@
-package project.cormember;
+package reserveAcco.dao;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

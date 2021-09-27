@@ -15,16 +15,12 @@ public class CormemberService {
 		return cormemberDao.createCormember(vo);
 	}
 	
-	public CormemberVO readCormember(String corId) {
-		return cormemberDao.readCormember(corId);
+	public CormemberVO findCormember(CormemberVO vo) {
+		return cormemberDao.findCormember(vo);
 	}
 	
 	public int modifyCorPass(CormemberVO vo) {
 		return cormemberDao.modifyCorPass(vo);
-	}
-	
-	public int modifyCorName(CormemberVO vo) {
-		return cormemberDao.modifyCorName(vo);
 	}
 	
 	public int modifyCorTel(CormemberVO vo) {

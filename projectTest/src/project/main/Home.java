@@ -36,7 +36,7 @@ public class Home {
 					System.out.println(menu.getMenuString());
 					switch (menu) {
 					case HOME:
-					// 항목넣어서 만들기
+					case 
 					}
 				} catch (MenuNotFoundException e) {
 					System.out.println(e.getMessage());

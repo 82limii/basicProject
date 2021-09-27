@@ -5,8 +5,8 @@ import project.member.MemberVO;
 
 public class ReservationController {
 	// 싱글톤 패턴
-	private ReservationController instance = new ReservationController();
-	public ReservationController getInstance() {
+	private static ReservationController instance = new ReservationController();
+	public static ReservationController getInstance() {
 		return instance;
 	}
 	private ReservationController() {}

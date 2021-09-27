@@ -15,12 +15,20 @@ public class MemberController {
 	private MemberService memberService = MemberService.getInstance();
 	
 	private MemberVO memsession = Application.getMemberSession();
-	
+	// 회원가입
 	public int insertMember(MemberVO vo) {
-		return memberService.insertMember(vo);
+		try {
+			if (memberService.insertMember(vo) == 1) {
+				return HomeMenu.HOME.getMenu();
+			}
+		} catch (Exception e) {
+			System.out.println("알 수 없는 오류가 발생하였습니다.");
+			return HomeMenu.HOME.getMenu();
+		}
+		return HomeMenu.HOME.getMenu();
 	}
 	
-	// 멤버 로그인
+	// 일반회원 로그인
 	public MemberVO signInMem(MemberVO vo) {
 		MemberVO mem = memberService.findMemUser(vo);
 		if (mem == null) {

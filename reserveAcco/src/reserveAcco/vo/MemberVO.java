@@ -1,4 +1,4 @@
-package project.member;
+package reserveAcco.vo;
 
 
 public class MemberVO {
