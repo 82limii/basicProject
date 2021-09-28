@@ -28,8 +28,10 @@ public class RoomDAO {
 				, accoId);
 	}
 	
-//	
-//	public List<RoomVO> selectRoom(String Ac) {
-//	     return template.update("SELECT*FROM RESERVATION WHERE ROOM_ID=? AND ? BETWEEN TO_CHAR(RES_IN_DATE,'YY-MM-DD')AND TO_CHAR(RES_OUT_DATE-1,'YY-MM-DD') ",vo.getRoomId(),vo.getResInDate());
-//	}
+	// 객실등록
+	public int insertRoom(RoomVO vo) {
+		return template.update("INSERT INTO ROOM (ROOM_ID, ACCO_ID, ROOM_COST, ROOM_INTRO, ROOM_NAME, ROOM_MAX_PEOPLE) VALUES (?, ?, ?, ?, ?, ?)"
+				, vo.getRoomId(), vo.getAccoId(), vo.getRoomCost(), vo.getRoomIntro(), vo.getRoomName(), vo.getRoomMaxPeople());
+	}
+
 }

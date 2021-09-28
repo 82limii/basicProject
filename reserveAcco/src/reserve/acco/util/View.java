@@ -15,8 +15,7 @@ public class View {
 	
 	// 법인
 	public static final int REGIST_ACCO = 8;	// 숙소 등록 페이지
-	public static final int REGIST_ROOM = 9;	// 객실 등록 페이지
-	public static final int RESERVE_COR = 10;	// 예약 조회 페이지
-	public static final int REVIEW_COR = 11;	// 리뷰 조회 페이지
-	public static final int MYPAGE_COR = 12;	// 마이페이지
+	public static final int RESERVE_COR = 9;	// 예약 조회 페이지
+	public static final int REVIEW_COR = 10;	// 리뷰 조회 페이지
+	public static final int MYPAGE_COR = 11;	// 마이페이지
 }

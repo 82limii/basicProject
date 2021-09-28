@@ -8,6 +8,18 @@ public class AccoVO {
 	private String accoIntro;
 	private String corId;
 	
+	public AccoVO() {
+	}
+	
+	public AccoVO(String accoId, String accoName, String accoAdd, String accoTel, String accoIntro, String corId) {
+		this.accoId = accoId;
+		this.accoName = accoName;
+		this.accoAdd = accoAdd;
+		this.accoTel = accoTel;
+		this.accoIntro = accoIntro;
+		this.corId = corId;
+	}
+	
 	public String getAccoId() {
 		return accoId;
 	}

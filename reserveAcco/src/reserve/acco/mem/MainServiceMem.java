@@ -34,16 +34,16 @@ public class MainServiceMem {
 			case View.RESERVE_MEM: view = reserve.reserveGo(); break;
 			case View.REVIEW_MEM: view = review.reviewGo(); break;
 			case View.MYPAGE_MEM: view = mypage.mypageGo(); break;
-			case View.HOME: view = new Controller().start(); break;
+			case View.HOME: return View.HOME;
 			}
 		}
 	}
 	
 	public int serviceList() {
-		System.out.println("==============================");
+		System.out.println("===============MENU===============");
 		System.out.println("[1] 예약하기\t[2] 후기작성\t[3] 마이페이지");
 		System.out.println("[9] 로그아웃\t[0] 종료");
-		System.out.println("==============================");
+		System.out.println("==================================");
 		System.out.print("> ");
 		int input = ScanUtil.nextInt();
 		
@@ -55,7 +55,7 @@ public class MainServiceMem {
 			Login = null;
 			return View.HOME;
 		case 0:
-			System.out.println("종료합니다.");
+			System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
 			System.exit(0);
 		default:
 			System.out.println("잘못 입력하셨습니다.");

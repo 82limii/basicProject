@@ -31,14 +31,14 @@ public class Controller {
 	private int home() {
 		System.out.println("WELCOME TO 어디갈래?");
 		System.out.println("[1] 로그인\t[2] 회원가입\t[0] 프로그램 종료");
-		System.out.print("번호를 입력해주세요.> ");
+		System.out.print("번호를 입력해주세요> ");
 		int input = ScanUtil.nextInt();
 		
 		switch(input) {
 		case 1: return View.LOGIN;
 		case 2: return View.JOIN;
 		case 0:
-			System.out.println("이용해주셔서 감사합니다.");
+			System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
 			System.exit(0);
 		default:
 			System.out.println("다시 입력해 주세요");

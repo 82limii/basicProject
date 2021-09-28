@@ -1,6 +1,6 @@
 package reserve.acco.common;
 
-import reserve.acco.dao.UserDao;
+import reserve.acco.dao.UserDAO;
 import reserve.acco.util.Application;
 import reserve.acco.util.ScanUtil;
 import reserve.acco.util.View;
@@ -16,7 +16,7 @@ public class LoginService {
 		}
 		return instance;
 	}
-	private UserDao userDao = UserDao.getInstance();
+	private UserDAO userDao = UserDAO.getInstance();
 	public MemberVO memsession = Application.getMemsession();
 	public CormemberVO corsession = Application.getCorsession();
 	
@@ -42,6 +42,7 @@ public class LoginService {
 	
 	// 개인회원 로그인
 	public int loginMem() {
+		System.out.println("개인회원 로그인을 선택하셨습니다.");
 		System.out.print("아이디> ");
 		String memId = ScanUtil.nextLine();
 		System.out.print("비밀번호> ");
@@ -68,6 +69,7 @@ public class LoginService {
 	
 	// 법인회원 로그인
 	public int loginCor() {
+		System.out.println("기업회원 로그인을 선택하셨습니다.");
 		System.out.print("아이디> ");
 		String corId = ScanUtil.nextLine();
 		System.out.print("비밀번호> ");

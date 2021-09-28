@@ -7,12 +7,12 @@ import reserve.acco.util.Application;
 import reserve.acco.vo.CormemberVO;
 import reserve.acco.vo.MemberVO;
 
-public class UserDao {
-	private UserDao(){}
-	private static UserDao instance;
-	public static UserDao getInstance(){
+public class UserDAO {
+	private UserDAO(){}
+	private static UserDAO instance;
+	public static UserDAO getInstance(){
 		if(instance == null){
-			instance = new UserDao();
+			instance = new UserDAO();
 		}
 		return instance;
 	}
@@ -50,5 +50,12 @@ public class UserDao {
 		return template.queryForObject("SELECT MEM_ID, MEM_PASS, MEM_NAME, MEM_BIR, MEM_TEL FROM MEMBER WHERE MEM_ID = ?"
 				, new BeanPropertyRowMapper<>(MemberVO.class)
 				, memId);
+	}
+	
+	// 법인회원 정보 조회
+	public CormemberVO showCorInfo (String corId) {
+		return template.queryForObject("SELECT COR_ID, COR_NO, COR_PASS, COR_NAME, COR_TEL FROM CORMEMBER WHERE COR_ID = ?"
+				, new BeanPropertyRowMapper<>(CormemberVO.class)
+				, corId);
 	}
 }

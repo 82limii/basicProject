@@ -28,7 +28,7 @@ public class ReviewDAO {
 	
 	// 리뷰 총별점 업데이트
 	public int updateReTotal(ReviewVO vo) {
-		return template.update("UPDATE REVIEW SET RE_TOTAL = (RE_CLEAN + RE_KIND + RE_CONVENIENCE) / 3 WHERE RES_NO =?", vo.getResNo());
+		return template.update("UPDATE REVIEW SET RE_TOTAL = round(((RE_CLEAN + RE_KIND + RE_CONVENIENCE) / 3), 1) WHERE RES_NO =?", vo.getResNo());
 	}
 	
 	// 리뷰 목록 보여주기(개인)
@@ -42,6 +42,13 @@ public class ReviewDAO {
 	// 리뷰 목록 보여주기(법인)
 	public List<Map<String, Object>> selectReviewListCor(String corId){
 		return template.queryForList("SELECT a.res_no, a.re_total, a.re_clean, a.re_kind, a.RE_CONVENIENCE, a.RE_DETAIL FROM REVIEW a, reservation b, room c, acco d where a.res_no = b.res_no and b.room_id = c.room_id and c.ACCO_ID = d.ACCO_ID and d.cor_id = ?",new BeanPropertyRowMapper<>(ReviewVO.class),corId);
+	}
+	
+	// 리뷰보기(accoId)
+	public List<ReviewVO> selectReviewAccoId(String accoId) {
+		return template.query("SELECT A.RES_NO, A.RE_TOTAL, A.RE_CLEAN, A.RE_KIND, A.RE_CONVENIENCE, A.RE_DETAIL FROM REVIEW A, RESERVATION B, ROOM C WHERE A.RES_NO = B.RES_NO AND B.ROOM_ID = C.ROOM_ID AND C.ACCO_ID = ?"
+				, new BeanPropertyRowMapper<>(ReviewVO.class)
+				, accoId);
 	}
 	
 	// 리뷰보기

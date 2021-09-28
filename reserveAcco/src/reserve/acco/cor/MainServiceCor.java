@@ -1,5 +1,6 @@
 package reserve.acco.cor;
 
+import reserve.acco.common.Controller;
 import reserve.acco.util.ScanUtil;
 import reserve.acco.util.View;
 import reserve.acco.vo.CormemberVO;
@@ -31,20 +32,21 @@ public class MainServiceCor {
 		while(true) {			
 			switch(view) {
 			case View.MAIN_COR: view = serviceList(); break;
-//			case View.REGIST_ACCO: view = regAcco; break;
-//			case View.RESERVE_COR: view = reserve; break;
-//			case View.REVIEW_COR: view = review; break;
-//			case View.MYPAGE_COR: view = mypage; break;
+			case View.REGIST_ACCO: view = regAcco.registGo(); break;
+			case View.RESERVE_COR: view = reserve.reserveGo(); break;
+			case View.REVIEW_COR: view = review.reviewGo(); break;
+			case View.MYPAGE_COR: view = mypage.mypageGo(); break;
+			case View.HOME: return View.HOME;
 			}
 		}
 	}
 	
 	public int serviceList() {
-		System.out.println("==============================");
+		System.out.println("===============MENU===============");
 		System.out.println("[1] 숙소등록\t[2] 예약조회\t[3] 리뷰조회");
 		System.out.println("[4] 마이페이지\t[9] 로그아웃\t[0] 종료");
-		System.out.println("==============================");
-		System.out.print(">");
+		System.out.println("==================================");
+		System.out.print("> ");
 		int input = ScanUtil.nextInt();
 		
 		switch (input) {
@@ -56,7 +58,7 @@ public class MainServiceCor {
 			Login = null;
 			return View.HOME;
 		case 0:
-			System.out.println("종료합니다.");
+			System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
 			System.exit(0);
 		default:
 			System.out.println("잘못 입력하셨습니다.");

@@ -8,6 +8,7 @@ import reserve.acco.dao.ReservationDAO;
 import reserve.acco.dao.RoomDAO;
 import reserve.acco.util.Application;
 import reserve.acco.util.ScanUtil;
+import reserve.acco.util.View;
 import reserve.acco.vo.AccoVO;
 import reserve.acco.vo.ReservationVO;
 import reserve.acco.vo.RoomVO;
@@ -52,38 +53,20 @@ public class ReserveMem {
 		session.setRoomId(roomId);
 		session.setResInDate(checkIn);
 		session.setResOutDate(checkOut);
-//		ReservationVO reserveVO = new ReservationVO();
-//		reserveVO.setResInDate(checkIn);
-//		reserveVO.setResOutDate(checkOut);
-//		reserveVO.setRoomId(roomId);
 		
-		ReservationVO vo = null;
 		try {
-			int num = reserveDAO.callReserve(session);
-			if(vo == null) {
+			List<ReservationVO> list = reserveDAO.callReserve(session);
+			int cnt_reserve = list.get(0).getCnt();
+			if(cnt_reserve == 0) {
 				reserveDAO.insertReserve(session, service.memsession.getMemId());
 				System.out.println("예약이 완료되었습니다.");
 			} else {
 				System.out.println("이미 예약이 완료된 객실입니다.");
+				return reserveGo();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-//		try {
-//			vo = reserveDAO.callReserve(session);
-//			System.out.println("이미예약이 완료되었습니다.");
-//		} catch (Exception e) {
-//			reserveDAO.insertReserve(vo, service.memsession.getMemId());
-//			System.out.println("예약이 완료되었습니다.");
-//		}
-		
-//		if (reserveDAO.callReserve(session)!= null) {
-//			System.out.println("이미 예약이 완료된 객실입니다.\n다른 객실을 이용해주세요");
-//		} else {
-//			reserveDAO.insertReserve(session, service.memsession.getMemId());
-//			System.out.println("예약이 완료되었습니다.");
-//		}
-		return reserveGo();
+		return View.MAIN_MEM;
 	}
 }

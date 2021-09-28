@@ -6,7 +6,7 @@ import java.util.Map;
 import reserve.acco.common.LoginService;
 import reserve.acco.dao.ReservationDAO;
 import reserve.acco.dao.ReviewDAO;
-import reserve.acco.dao.UserDao;
+import reserve.acco.dao.UserDAO;
 import reserve.acco.util.ScanUtil;
 import reserve.acco.util.View;
 import reserve.acco.vo.ReservationVO;
@@ -22,7 +22,7 @@ public class MypageMem {
 		return instance;
 	}	
 	
-	private UserDao userDAO = UserDao.getInstance();
+	private UserDAO userDAO = UserDAO.getInstance();
 	private ReservationDAO reservationDAO = ReservationDAO.getInstance();
 	private ReviewDAO reviewDAO = ReviewDAO.getInstance();
 	
@@ -42,7 +42,7 @@ public class MypageMem {
 		case 0: 
 			return View.MAIN_MEM;
 		default:
-			System.out.println("다시 입력해주세요");
+			System.out.println("다시 입력해주세요.");
 			break;
 		}
 		return mypageGo();

@@ -7,6 +7,7 @@ public class ReservationVO {
 	private String resOutDate;
 	private String memId;
 	private String roomId;
+	private int cnt;
 	
 	public ReservationVO() {
 	}
@@ -67,6 +68,14 @@ public class ReservationVO {
 		this.roomId = roomId;
 	}
 
+	public int getCnt() {
+		return cnt;
+	}
+
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 
 	@Override
 	public String toString() {
@@ -74,10 +83,9 @@ public class ReservationVO {
 				+ (resDate != null ? "resDate=" + resDate + ", " : "")
 				+ (resInDate != null ? "resInDate=" + resInDate + ", " : "")
 				+ (resOutDate != null ? "resOutDate=" + resOutDate + ", " : "")
-				+ (memId != null ? "memId=" + memId + ", " : "") + (roomId != null ? "roomId=" + roomId : "") + "]";
+				+ (memId != null ? "memId=" + memId + ", " : "") + (roomId != null ? "roomId=" + roomId + ", " : "")
+				+ "cnt=" + cnt + "]";
 	}
 
-	
-	
 
 } // end of class

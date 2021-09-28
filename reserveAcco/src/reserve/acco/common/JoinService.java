@@ -1,6 +1,6 @@
 package reserve.acco.common;
 
-import reserve.acco.dao.UserDao;
+import reserve.acco.dao.UserDAO;
 import reserve.acco.util.ScanUtil;
 import reserve.acco.util.View;
 import reserve.acco.vo.CormemberVO;
@@ -15,7 +15,7 @@ public class JoinService {
 		}
 		return instance;
 	}
-	private UserDao userDao = UserDao.getInstance();
+	private UserDAO userDao = UserDAO.getInstance();
 	
 	public int join() {
 		System.out.println("===========회원가입===========");

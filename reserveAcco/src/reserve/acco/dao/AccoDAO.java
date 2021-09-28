@@ -26,4 +26,17 @@ public class AccoDAO {
 	public List<AccoVO> selectAcco() {
 		return template.query("SELECT ACCO_ID, ACCO_NAME, ACCO_ADD, ACCO_TEL, ACCO_INTRO FROM ACCO", new BeanPropertyRowMapper<>(AccoVO.class));
 	}
+	
+	// 숙소조회 (법인아이디)
+	public List<AccoVO> showAcco(String corId){
+		return template.query("SELECT ACCO_ID, ACCO_NAME, ACCO_ADD, ACCO_TEL, ACCO_INTRO, COR_ID FROM ACCO WHERE COR_ID = ?"
+				, new BeanPropertyRowMapper<>(AccoVO.class)
+				, corId);
+	}
+	
+	// 숙소등록
+	public int insertAcco(AccoVO vo) {
+		return template.update("INSERT INTO ACCO (ACCO_ID, ACCO_NAME, ACCO_ADD, ACCO_TEL, ACCO_INTRO, COR_ID) VALUES (?, ?, ?, ?, ?, ?)"
+				, vo.getAccoId(), vo.getAccoName(), vo.getAccoAdd(), vo.getAccoTel(), vo.getAccoIntro(), vo.getCorId());
+	}
 }
