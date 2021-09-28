@@ -3,8 +3,16 @@ package reserve.acco.vo;
 public class CancelVO {
 	private String canDate;
 	private String canReason;
-	private int resNo;
+	private long resNo;
 	
+	public CancelVO() {
+	}
+	
+	public CancelVO(String canReason, long resNo) {
+		this.canReason = canReason;
+		this.resNo = resNo;
+	}
+
 	public String getCanDate() {
 		return canDate;
 	}
@@ -17,10 +25,10 @@ public class CancelVO {
 	public void setCanReason(String canReason) {
 		this.canReason = canReason;
 	}
-	public int getResNo() {
+	public long getResNo() {
 		return resNo;
 	}
-	public void setResNo(int resNo) {
+	public void setResNo(long resNo) {
 		this.resNo = resNo;
 	}
 	
