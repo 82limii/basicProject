@@ -1,9 +1,9 @@
 package reserve.acco.mem;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 
 import reserve.acco.common.LoginService;
 import reserve.acco.dao.CancelDAO;
@@ -64,8 +64,10 @@ public class MypageMem {
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("숫자를 입력해주세요.");
+		} catch (DuplicateKeyException e) {
+			System.out.println("이미 이용된 예약입니다.");
 		} catch (DataIntegrityViolationException e) {
-			System.out.println("존재하지 않는 예약코드입니다.");
+			System.out.println("이미 이용된 예약입니다.");
 		}
 		catch (Exception e) {
 			System.out.println("알 수 없는 에러가 발생했습니다.");
@@ -101,8 +103,9 @@ public class MypageMem {
 		System.out.print("취소사유를 입력해주세요> ");
 		String canReason = ScanUtil.nextLine();
 		
-		int result = cancelDAO.insertCancel(new CancelVO(canReason, resNo));
-		if (result != 0) {
+		int resultCan = cancelDAO.insertCancel(new CancelVO(canReason, resNo));
+		int resultRe = reservationDAO.deleteReserve(resNo);
+		if ((resultCan != 0) && (resultRe != 0)) {
 			System.out.println("예약을 취소했습니다.");
 		} else {
 			System.out.println("예약취소를 실패했습니다.");

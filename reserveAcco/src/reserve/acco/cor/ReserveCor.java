@@ -13,7 +13,6 @@ import reserve.acco.util.ScanUtil;
 import reserve.acco.util.View;
 import reserve.acco.vo.AccoVO;
 import reserve.acco.vo.CancelVO;
-import reserve.acco.vo.ReservationVO;
 
 public class ReserveCor {
 	private ReserveCor(){}
@@ -65,8 +64,9 @@ public class ReserveCor {
 			System.out.print("취소사유를 입력해주세요> ");
 			String canReason = ScanUtil.nextLine();
 			
-			int result = cancelDAO.insertCancel(new CancelVO(canReason, resNo));
-			if (result != 0) {
+			int resultCan = cancelDAO.insertCancel(new CancelVO(canReason, resNo));
+			int resultRe = reservationDAO.deleteReserve(resNo);
+			if ((resultCan != 0) && (resultRe != 0)) {
 				System.out.println("예약을 취소했습니다.");
 			} else {
 				System.out.println("예약취소를 실패했습니다.");
@@ -74,7 +74,7 @@ public class ReserveCor {
 		} catch (DuplicateKeyException e) {
 			System.out.println("이미 취소된 예약입니다.");
 		} catch (DataIntegrityViolationException e) {
-			System.out.println("존재하지 않는 예약코드입니다.");
+			System.out.println("이미 취소된 예약입니다.");
 		} catch (Exception e) {
 			System.out.println("알 수 없는 에러가 발생했습니다,");
 			e.printStackTrace();

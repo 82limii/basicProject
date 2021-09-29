@@ -52,4 +52,9 @@ public class ReservationDAO {
 				, new BeanPropertyRowMapper<ReservationVO>(ReservationVO.class)
 				, vo.getRoomId(), vo.getResInDate());
 	}
+	
+	// 예약취소
+	public int deleteReserve(long resNo) {
+		return template.update("DELETE FROM RESERVATION WHERE RES_NO = ?", resNo);
+	}
 }

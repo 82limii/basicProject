@@ -68,8 +68,6 @@ public class ReserveMem {
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("숫자를 입력해주세요.");
-		} catch (DataIntegrityViolationException e) {
-			System.out.println("양식에 맞게 입력해주세요.");
 		} catch (Exception e) {
 			System.out.println("알 수 없는 에러가 발생했습니다.");
 			e.printStackTrace();

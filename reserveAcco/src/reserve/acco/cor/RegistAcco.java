@@ -114,8 +114,6 @@ public class RegistAcco {
 			}
 		} catch (DuplicateKeyException e) {
 			System.out.println("이미 등록된 객실코드입니다.");
-		} catch (DataIntegrityViolationException e) {
-			System.out.println("양식에 맞게 입력해 주세요.");
 		} catch (Exception e) {
 			System.out.println("알 수 없는 에러가 발생했습니다.");
 			e.printStackTrace();
