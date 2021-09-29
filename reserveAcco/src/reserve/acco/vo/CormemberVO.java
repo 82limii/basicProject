@@ -50,8 +50,8 @@ public class CormemberVO {
 	
 	@Override
 	public String toString() {
-		return "CormemberVO [corId=" + corId + ", corNo=" + corNo + ", corPass=" + corPass + ", corName=" + corName
-				+ ", corTel=" + corTel + "]";
+		return "법인 ID : " + corId + ", 사업자번호 : " + corNo + ", 법인 비밀번호 : " + corPass + ", 사업자명 : " + corName
+				+ ", 연락처 : " + corTel;
 	}
 
 }	// end of class

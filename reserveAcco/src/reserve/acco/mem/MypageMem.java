@@ -3,6 +3,8 @@ package reserve.acco.mem;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 import reserve.acco.common.LoginService;
 import reserve.acco.dao.CancelDAO;
 import reserve.acco.dao.ReservationDAO;
@@ -30,15 +32,16 @@ public class MypageMem {
 	private CancelDAO cancelDAO = CancelDAO.getInstance();
 	
 	public int mypageGo() {
-		System.out.println("===============마이페이지===============");
-		System.out.println("[1] 내정보조회\t[2] 예약목록 조회\t[3] 후기목록 조회\t[0] 이전메뉴");
-		System.out.print("이동할 메뉴를 선택해주세요> ");
-		int input = ScanUtil.nextInt();
-		
-		switch (input) {
-		case 1: showMyInfo();
+		try {
+			System.out.println("===============마이페이지===============");
+			System.out.println("[1] 내정보조회\t[2] 예약목록 조회\t[3] 후기목록 조회\t[0] 이전메뉴");
+			System.out.print("이동할 메뉴를 선택해주세요> ");
+			int input = ScanUtil.nextInt();
+			
+			switch (input) {
+			case 1: showMyInfo();
 			break;
-		case 2: showMyReserve();
+			case 2: showMyReserve();
 			System.out.print("예약을 취소하시겠습니까? (y or n으로 입력)> ");
 			String inputCan = ScanUtil.nextLine();
 			
@@ -51,13 +54,22 @@ public class MypageMem {
 				return 2;
 			}
 			break;
-		case 3: showMyReview();
+			case 3: showMyReview();
 			break;
-		case 0: 
-			return View.MAIN_MEM;
-		default:
-			System.out.println("다시 입력해주세요.");
-			break;
+			case 0: 
+				return View.MAIN_MEM;
+			default:
+				System.out.println("다시 입력해주세요.");
+				break;
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("숫자를 입력해주세요.");
+		} catch (DataIntegrityViolationException e) {
+			System.out.println("존재하지 않는 예약코드입니다.");
+		}
+		catch (Exception e) {
+			System.out.println("알 수 없는 에러가 발생했습니다.");
+			e.printStackTrace();
 		}
 		return mypageGo();
 	}

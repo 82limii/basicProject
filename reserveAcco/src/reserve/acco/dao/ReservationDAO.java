@@ -24,19 +24,19 @@ public class ReservationDAO {
 
 	// 개인아이디로 예약내역 조회
 	public List<ReservationVO> selectReservation(String memId) {
-		return template.query("SELECT RES_NO, RES_DATE, RES_IN_DATE, RES_OUT_DATE, MEM_ID, ROOM_ID FROM RESERVATION WHERE MEM_ID = ?",
+		return template.query("SELECT RES_NO, SUBSTR(RES_DATE,1,10) RES_DATE, SUBSTR(RES_IN_DATE,1,10) RES_IN_DATE, SUBSTR(RES_OUT_DATE,1,10) RES_OUT_DATE, MEM_ID, ROOM_ID FROM RESERVATION WHERE MEM_ID = ?",
 					new BeanPropertyRowMapper<>(ReservationVO.class), memId);
 	}
 	
 	// 법인아이디로 예약내역 조회
 	public List<ReservationVO> selectReservationCor(String corId) {
-		return template.query("SELECT A.RES_NO, A.RES_DATE, A.RES_IN_DATE, A.RES_OUT_DATE, A.MEM_ID, A.ROOM_ID FROM RESERVATION A, ROOM B, ACCO C WHERE A.ROOM_ID=B.ROOM_ID AND B.ACCO_ID=C.ACCO_ID AND COR_ID = ?",
+		return template.query("SELECT A.RES_NO, SUBSTR(A.RES_DATE,1,10) RES_DATE, SUBSTR(A.RES_IN_DATE,1,10) RES_IN_DATE, SUBSTR(A.RES_OUT_DATE,1,10) RES_OUT_DATE, A.MEM_ID, A.ROOM_ID FROM RESERVATION A, ROOM B, ACCO C WHERE A.ROOM_ID=B.ROOM_ID AND B.ACCO_ID=C.ACCO_ID AND COR_ID = ?",
 					new BeanPropertyRowMapper<>(ReservationVO.class), corId);
 	}
 	
 	// accoId 예약내역 조회
 	public List<ReservationVO> selectReserveAccoId(String accoId) {
-		return template.query("SELECT A.RES_NO, A.RES_DATE, A.RES_IN_DATE, A.RES_OUT_DATE, A.MEM_ID, A.ROOM_ID FROM RESERVATION A, ROOM B WHERE A.ROOM_ID = B.ROOM_ID AND B.ACCO_ID = ?"
+		return template.query("SELECT A.RES_NO, SUBSTR(A.RES_DATE,1,10) RES_DATE, SUBSTR(A.RES_IN_DATE,1,10) RES_IN_DATE, SUBSTR(A.RES_OUT_DATE,1,10) RES_OUT_DATE, A.MEM_ID, A.ROOM_ID FROM RESERVATION A, ROOM B WHERE A.ROOM_ID = B.ROOM_ID AND B.ACCO_ID = ?"
 				, new BeanPropertyRowMapper<>(ReservationVO.class), accoId);
 	}
 	
@@ -52,17 +52,4 @@ public class ReservationDAO {
 				, new BeanPropertyRowMapper<ReservationVO>(ReservationVO.class)
 				, vo.getRoomId(), vo.getResInDate());
 	}
-//	public int callReserve(ReservationVO vo) {
-//		System.out.println(vo);
-//		System.out.println(vo);
-//		String sql = "SELECT count (*) FROM RESERVATION WHERE ROOM_ID = ? AND TO_DATE(?) BETWEEN RES_IN_DATE AND (RES_OUT_DATE-1)";
-//		System.out.println("sql:"+sql);
-//		ReservationVO rvo = template.queryForObject(sql
-//				, new BeanPropertyRowMapper<>(ReservationVO.class)
-//				, vo.getRoomId(), vo.getResInDate());
-//		System.out.println(rvo);
-//		return template.query("SELECT count (*) FROM RESERVATION WHERE ROOM_ID = ? AND TO_DATE(?) BETWEEN RES_IN_DATE AND (RES_OUT_DATE-1)"
-//				, new BeanPropertyRowMapper<ReservationVO>(ReservationVO.class)
-//				, vo.getRoomId(), vo.getResInDate());
-//	}
 }

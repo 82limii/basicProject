@@ -34,7 +34,7 @@ public class CancelVO {
 	
 	@Override
 	public String toString() {
-		return "CancelVO [canDate=" + canDate + ", canReason=" + canReason + ", resNo=" + resNo + "]";
+		return "취소일자 :" + canDate + ", 취소사유 : " + canReason + ", 예약번호 : " + resNo ;
 	}
 	
 }	// end of class

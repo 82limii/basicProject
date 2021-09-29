@@ -89,6 +89,7 @@ public class LoginService {
 			}			
 		} catch (Exception e) {
 			System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
+			e.printStackTrace();
 		}
 		return View.HOME; 	
 	}

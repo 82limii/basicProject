@@ -40,26 +40,33 @@ public class MainServiceMem {
 	}
 	
 	public int serviceList() {
-		System.out.println("===============MENU===============");
-		System.out.println("[1] 예약하기\t[2] 후기작성\t[3] 마이페이지");
-		System.out.println("[9] 로그아웃\t[0] 종료");
-		System.out.println("==================================");
-		System.out.print("> ");
-		int input = ScanUtil.nextInt();
-		
-		switch (input) {
-		case 1: return View.RESERVE_MEM;
-		case 2: return View.REVIEW_MEM;
-		case 3: return View.MYPAGE_MEM;
-		case 9: 
-			Login = null;
-			return View.HOME;
-		case 0:
-			System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
-			System.exit(0);
-		default:
-			System.out.println("잘못 입력하셨습니다.");
-			break;
+		try {
+			System.out.println("===============MENU===============");
+			System.out.println("[1] 예약하기\t[2] 후기작성\t[3] 마이페이지");
+			System.out.println("[9] 로그아웃\t[0] 종료");
+			System.out.println("==================================");
+			System.out.print("> ");
+			int input = ScanUtil.nextInt();
+			
+			switch (input) {
+			case 1: return View.RESERVE_MEM;
+			case 2: return View.REVIEW_MEM;
+			case 3: return View.MYPAGE_MEM;
+			case 9: 
+				Login = null;
+				return View.HOME;
+			case 0:
+				System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
+				System.exit(0);
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+				break;
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("숫자를 입력해주세요.");
+		} catch (Exception e) {
+			System.out.println("알 수 없는 에러가 발생했습니다.");
+			e.printStackTrace();
 		}
 		return View.MAIN_MEM;
 	}

@@ -1,10 +1,8 @@
 package reserve.acco.cor;
 
-import reserve.acco.common.Controller;
 import reserve.acco.util.ScanUtil;
 import reserve.acco.util.View;
 import reserve.acco.vo.CormemberVO;
-import reserve.acco.vo.MemberVO;
 
 public class MainServiceCor {
 	public static CormemberVO Login;
@@ -42,28 +40,37 @@ public class MainServiceCor {
 	}
 	
 	public int serviceList() {
-		System.out.println("===============MENU===============");
-		System.out.println("[1] 숙소등록\t[2] 예약조회\t[3] 리뷰조회");
-		System.out.println("[4] 마이페이지\t[9] 로그아웃\t[0] 종료");
-		System.out.println("==================================");
-		System.out.print("> ");
-		int input = ScanUtil.nextInt();
-		
-		switch (input) {
-		case 1: return View.REGIST_ACCO;
-		case 2: return View.RESERVE_COR;
-		case 3: return View.REVIEW_COR;
-		case 4: return View.MYPAGE_COR;
-		case 9: 
-			Login = null;
-			return View.HOME;
-		case 0:
-			System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
-			System.exit(0);
-		default:
-			System.out.println("잘못 입력하셨습니다.");
-			break;
+		try {
+			System.out.println("===============MENU===============");
+			System.out.println("[1] 숙소등록\t[2] 예약조회\t[3] 리뷰조회");
+			System.out.println("[4] 마이페이지\t[9] 로그아웃\t[0] 종료");
+			System.out.println("==================================");
+			System.out.print("> ");
+			int input = ScanUtil.nextInt();
+			
+			switch (input) {
+			case 1: return View.REGIST_ACCO;
+			case 2: return View.RESERVE_COR;
+			case 3: return View.REVIEW_COR;
+			case 4: return View.MYPAGE_COR;
+			case 9: 
+				Login = null;
+				return View.HOME;
+			case 0:
+				System.out.println("이용해주셔서 감사합니다.\n시스템을 종료합니다.");
+				System.exit(0);
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+				break;
+			}
+			return View.MAIN_COR;
+		} catch (NumberFormatException e) {
+			System.out.println("숫자를 입력해주세요.");
+			return View.MAIN_COR;
+		} catch (Exception e) {
+			System.out.println("알 수 없는 에러가 발생했습니다.");
+			e.printStackTrace();
+			return View.MAIN_COR;
 		}
-		return View.MAIN_COR;
 	}
 }

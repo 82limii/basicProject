@@ -58,8 +58,8 @@ public class AccoVO {
 	}
 	@Override
 	public String toString() {
-		return "AccoVO [accoId=" + accoId + ", accoName=" + accoName + ", accoAdd=" + accoAdd + ", accoTel=" + accoTel
-				+ ", accoIntro=" + accoIntro + "]";
+		return "숙소코드 : " + accoId + ", 숙소명 : " + accoName + ", 숙소주소 : " + accoAdd + ", 숙소연락처 : " + accoTel
+				+ ", 숙소소개 : " + accoIntro;
 	}
 	
 }	// end of class

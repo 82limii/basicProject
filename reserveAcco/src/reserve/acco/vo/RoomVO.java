@@ -3,7 +3,7 @@ package reserve.acco.vo;
 public class RoomVO {
 	private String roomId;
 	private String accoId;
-	private double roomCost;
+	private int roomCost;
 	private String roomIntro;
 	private String roomName;
 	private int roomMaxPeople;
@@ -11,7 +11,7 @@ public class RoomVO {
 	public RoomVO() {
 	}
 	
-	public RoomVO(String roomId, String accoId, double roomCost, String roomIntro, String roomName, int roomMaxPeople) {
+	public RoomVO(String roomId, String accoId, int roomCost, String roomIntro, String roomName, int roomMaxPeople) {
 		this.roomId = roomId;
 		this.accoId = accoId;
 		this.roomCost = roomCost;
@@ -32,10 +32,10 @@ public class RoomVO {
 	public void setAccoId(String accoId) {
 		this.accoId = accoId;
 	}
-	public double getRoomCost() {
+	public int getRoomCost() {
 		return roomCost;
 	}
-	public void setRoomCost(double roomCost) {
+	public void setRoomCost(int roomCost) {
 		this.roomCost = roomCost;
 	}
 	public String getRoomIntro() {
@@ -59,10 +59,10 @@ public class RoomVO {
 
 	@Override
 	public String toString() {
-		return "RoomVO [" + (roomId != null ? "roomId=" + roomId + ", " : "")
-				+ (accoId != null ? "accoId=" + accoId + ", " : "") + "roomCost=" + roomCost + ", "
-				+ (roomIntro != null ? "roomIntro=" + roomIntro + ", " : "")
-				+ (roomName != null ? "roomName=" + roomName + ", " : "") + "roomMaxPeople=" + roomMaxPeople + "]";
+		return  (roomId != null ? "객실코드 : " + roomId + ", " : "")
+				+ (accoId != null ? "숙소코드 : " + accoId + ", " : "") + "예약금액 : " + roomCost + ", "
+				+ (roomIntro != null ? "객실정보 : " + roomIntro + ", " : "")
+				+ (roomName != null ? "객실명 : " + roomName + ", " : "") + "최대인원수 : " + roomMaxPeople;
 	}
 		
 }	// end of class

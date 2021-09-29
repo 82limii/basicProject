@@ -8,10 +8,10 @@ public class MemberVO {
 	private String memBir;
 	private String memTel;
 	
-	public MemberVO() {}
+	public MemberVO() {
+	}
 	
 	public MemberVO(String memId, String memPass, String memName, String memBir, String memTel) {
-		super();
 		this.memId = memId;
 		this.memPass = memPass;
 		this.memName = memName;
@@ -52,8 +52,8 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [memId=" + memId + ", memPass=" + memPass + ", memName=" + memName + ", memBir=" + memBir
-				+ ", memTel=" + memTel + "]";
+		return "개인ID : " + memId + ", 개인 비밀번호 : " + memPass + ", 이름 : " + memName + ", 생년월일 : " + memBir
+				+ ", 연락처 : " + memTel;
 	}
 	
 }

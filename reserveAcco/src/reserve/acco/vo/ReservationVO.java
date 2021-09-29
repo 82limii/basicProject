@@ -1,7 +1,7 @@
 package reserve.acco.vo;
 
 public class ReservationVO {
-	private Long resNo;
+	private long resNo;
 	private String resDate;
 	private String resInDate;
 	private String resOutDate;
@@ -20,11 +20,11 @@ public class ReservationVO {
 	}
 
 
-	public Long getResNo() {
+	public long getResNo() {
 		return resNo;
 	}
 
-	public void setResNo(Long resNo) {
+	public void setResNo(long resNo) {
 		this.resNo = resNo;
 	}
 
@@ -77,15 +77,16 @@ public class ReservationVO {
 		this.cnt = cnt;
 	}
 
+
 	@Override
 	public String toString() {
-		return "ReservationVO [" + (resNo != null ? "resNo=" + resNo + ", " : "")
-				+ (resDate != null ? "resDate=" + resDate + ", " : "")
-				+ (resInDate != null ? "resInDate=" + resInDate + ", " : "")
-				+ (resOutDate != null ? "resOutDate=" + resOutDate + ", " : "")
-				+ (memId != null ? "memId=" + memId + ", " : "") + (roomId != null ? "roomId=" + roomId + ", " : "")
-				+ "cnt=" + cnt + "]";
+		return "예약번호 : " + resNo + ", " 
+				+ (resDate != null ? "예약일자 : " + resDate + ", " : "")
+				+ (resInDate != null ? "체크인" + resInDate + ", " : "")
+				+ (resOutDate != null ? "체크아웃" + resOutDate + ", " : "")
+				+ (roomId != null ? "객실코드 : " + roomId : "");
 	}
+
 
 
 } // end of class

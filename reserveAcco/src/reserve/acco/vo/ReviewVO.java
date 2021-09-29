@@ -57,8 +57,8 @@ public class ReviewVO {
 	
 	@Override
 	public String toString() {
-		return "ReviewVO [reTotal=" + reTotal + ", reClean=" + reClean + ", reKind=" + reKind + ", reConvenience="
-				+ reConvenience + ", reDetail=" + reDetail + ", resNo=" + resNo + "]";
+		return "총별점 : " + reTotal + ", 청결도 : " + reClean + ", 서비스&친절도 : " + reKind + ", 시설&편의시설 : "
+				+ reConvenience + ", 상세리뷰 : " + reDetail + ", 예약번호 : " + resNo;
 	}
 	
 }	// end of class

@@ -2,6 +2,9 @@ package reserve.acco.cor;
 
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
+
 import reserve.acco.common.LoginService;
 import reserve.acco.dao.AccoDAO;
 import reserve.acco.dao.CancelDAO;
@@ -50,22 +53,31 @@ public class ReserveCor {
 		for (AccoVO vo : list) {
 			System.out.println(vo);
 		}
-		System.out.print("예약을 조회할 숙소코드를 입력해주세요>");
+		System.out.print("예약을 조회할 숙소코드를 입력해주세요> ");
 		String accoId = ScanUtil.nextLine();
 		System.out.println(reservationDAO.selectReserveAccoId(accoId));
 	}
 	
 	private void insertCancel() {
-		System.out.print("취소할 예약의 예약코드를 입력해주세요> ");
-		long resNo = ScanUtil.nextLong();
-		System.out.print("취소사유를 입력해주세요> ");
-		String canReason = ScanUtil.nextLine();
-		
-		int result = cancelDAO.insertCancel(new CancelVO(canReason, resNo));
-		if (result != 0) {
-			System.out.println("예약을 취소했습니다.");
-		} else {
-			System.out.println("예약취소를 실패했습니다.");
+		try {
+			System.out.print("취소할 예약의 예약코드를 입력해주세요> ");
+			long resNo = ScanUtil.nextLong();
+			System.out.print("취소사유를 입력해주세요> ");
+			String canReason = ScanUtil.nextLine();
+			
+			int result = cancelDAO.insertCancel(new CancelVO(canReason, resNo));
+			if (result != 0) {
+				System.out.println("예약을 취소했습니다.");
+			} else {
+				System.out.println("예약취소를 실패했습니다.");
+			}
+		} catch (DuplicateKeyException e) {
+			System.out.println("이미 취소된 예약입니다.");
+		} catch (DataIntegrityViolationException e) {
+			System.out.println("존재하지 않는 예약코드입니다.");
+		} catch (Exception e) {
+			System.out.println("알 수 없는 에러가 발생했습니다,");
+			e.printStackTrace();
 		}
 	}
 }
